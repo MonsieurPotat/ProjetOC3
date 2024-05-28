@@ -24,17 +24,19 @@
     </header>
     <main> 
         <H2>Log In</H2>
-        <label for="email">E-mail</label>
-        <form action="/api/login" method="get" class="formlogin">
-            <div class="formmail">
-              <input type="text" name="name" id="name" required />
+        <form id="loginForm" class ="formlogin">
+            <div class="formmail">      
+                <label for="email">E-mail</label>
+                <input type="name" name="name" id="name" required />
             </div>
             <div class="formpassword">
-        <label for="password">Mot de passe</label>
-              <input type="text" name="name" id="name" required />
+                <label for="password">Mot de passe</label>
+                <input type="password" name="password" id="password" required />
             </div>
             <button type="submit">Se connecter</button>
             <a href="#">Mot de passe oublié</a>
+        </form>
+        <div id="error" style="color: red; display: none;">Erreur de connexion. Veuillez réessayer.</div>
         
 
         
@@ -45,4 +47,7 @@
         <ul>
             <li>Mentions légales</li>
         </ul>
+        <script src="login.js"></script>
     </footer>
+    </body>
+    </html>
