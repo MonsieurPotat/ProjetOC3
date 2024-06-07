@@ -23,6 +23,9 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
         }
 
         const data = await response.json();
+        const token= data.token;
+        localStorage.setItem('authToken',token);
+        console.log(token);
         
         // Gestion de la connexion réussie (par exemple, redirection)
         console.log('Connexion réussie', data);
