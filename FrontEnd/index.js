@@ -63,6 +63,11 @@ document.addEventListener("DOMContentLoaded", function() {
                     afficherfiltre(filtre,projects);
                 })
                 .catch(error => console.error('Erreur lors du chargement des données :', error)); 
-                })
+                });
+                const token = localStorage.getItem('token');
+                if (token) {
+                    const adminBar = document.getElementById('admin-bar');
+                    adminBar.style.display = 'block';
+                }
 
     })
