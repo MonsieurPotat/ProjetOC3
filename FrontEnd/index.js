@@ -50,7 +50,6 @@ document.addEventListener("DOMContentLoaded", function() {
             fetch('http://localhost:5678/api/categories')
                 .then(response => response.json())
                 .then(filtre => {
-                       /* Faire bouton tous ici */
                     const allCategory = document.createElement('li');
                     allCategory.textContent = 'Tous';
                     filters.appendChild(allCategory);
