@@ -29,7 +29,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
         
         // Gestion de la connexion réussie (par exemple, redirection)
         console.log('Connexion réussie', data);
-        window.location.href = '/dashboard';  // Remplacez cette ligne par la page de redirection appropriée
+        window.location.href = '/index.html';  // Remplacez cette ligne par la page de redirection appropriée
 
     } catch (error) {
         console.error('Erreur:', error);
