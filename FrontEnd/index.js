@@ -1,5 +1,11 @@
 
-document.addEventListener("DOMContentLoaded", function() {
+    const token = localStorage.getItem('authToken');
+        if (token) {
+            const adminBar = document.getElementById('admin-bar');
+            const filters = document.querySelector('.filters')
+            adminBar.style.display = 'block';
+            filters.style.display = 'none';
+                }
     const gallery = document.querySelector('.gallery');
     const filters = document.querySelector('.filters');
 
@@ -64,12 +70,5 @@ document.addEventListener("DOMContentLoaded", function() {
                 })
                 .catch(error => console.error('Erreur lors du chargement des données :', error)); 
                 });
-                const token = localStorage.getItem('token');
-                if (token) {
-                    const adminBar = document.getElementById('admin-bar');
-                    const filters = document.querySelector('.filters')
-                    adminBar.style.display = 'block';
-                    filters.style.display = 'none';
-                }
 
-    })
+    
