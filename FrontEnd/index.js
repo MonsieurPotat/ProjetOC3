@@ -2,9 +2,16 @@
     const token = localStorage.getItem('authToken');
         if (token) {
             const adminBar = document.getElementById('admin-bar');
-            const filters = document.querySelector('.filters')
+            const filters = document.querySelector('.filters');
+            const login = document.getElementById('login');
+            const logout = document.getElementById('logout');
             adminBar.style.display = 'block';
             filters.style.display = 'none';
+            login.style.display = 'none';
+            logout.style.display = 'block';
+            console.log('login');
+            console.log('logout');
+
                 }
     const gallery = document.querySelector('.gallery');
     const filters = document.querySelector('.filters');
