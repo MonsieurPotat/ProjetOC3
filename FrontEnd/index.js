@@ -45,16 +45,23 @@
             });
 
         }
+    const closeModalBtns = document.querySelectorAll('.close');
 
-        const modal = document.getElementById('modal');
-        const closeModalBtn = modal.querySelector('.close');
-        closeModalBtn.addEventListener('click', function() {
+    closeModalBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const modal = btn.closest('.modal');
             modal.style.display = 'none';
         });
-
+    });
         window.addEventListener('click', function(event) {
+            const modal = document.getElementById('modal');
+            const modalAddProject = document.getElementById('modal-add-project');
+            
             if (event.target === modal) {
                 modal.style.display = 'none';
+            }
+            if(event.target === modalAddProject){
+                modalAddProject.style.display='none';
             }
         });
         function afficherProjetsDansModal(data) {
@@ -128,7 +135,6 @@
                     const allCategory = document.createElement('li');
                     allCategory.textContent = 'Tous';
                     filters.appendChild(allCategory);
-    
                     allCategory.addEventListener('click', function() {
                         gallery.innerHTML = '';
                         afficherprojet(projects);
