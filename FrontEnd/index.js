@@ -21,22 +21,38 @@
             })
 
             const portfolioHeader = document.querySelector('#titleportfolio');
-            console.log(portfolioHeader);
 
             const editButton = document.createElement('button');
             editButton.id='editButton';
             editButton.textContent ='Modifier';
 
             portfolioHeader.appendChild(editButton);
-            console.log(editButton);
 
             editButton.addEventListener('click',function(){
-                alert('Bouton Modifier cliqué')
-
+                const modal = document.getElementById('modal');
+                modal.style.display = 'block';
+                
+                const addButton = document.createElement('button');
+                addButton.id='addbutton';
+                addButton.textContent='Ajouter un projet';
+                modal.querySelector('.modal-content').appendChild(addButton);
             });
-            
+        }
+        
+        const modal = document.getElementById('modal');
+        const closeModalBtn = modal.querySelector('.close');
+        closeModalBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
             }
-            
+        });
+   
+
+
     const gallery = document.querySelector('.gallery');
     const filters = document.querySelector('.filters');
 
