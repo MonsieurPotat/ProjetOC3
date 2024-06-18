@@ -4,13 +4,16 @@
             const adminBar = document.getElementById('admin-bar');
             const filters = document.querySelector('.filters');
             const login = document.getElementById('login');
-            const logout = document.getElementById('logout');
             adminBar.style.display = 'block';
             filters.style.display = 'none';
             login.style.display = 'none';
-            logout.style.display = 'block';
-            console.log('login');
-            console.log('logout');
+            const navList = document.querySelector('nav ul')
+            const logout = document.createElement('li');
+            console.log(logout)
+            logout.id='logout';
+            console.log('logout')
+            logout.textContent ='logout';
+            navList.appendChild(logout);
 
                 }
     const gallery = document.querySelector('.gallery');
@@ -66,7 +69,6 @@
                     const allCategory = document.createElement('li');
                     allCategory.textContent = 'Tous';
                     filters.appendChild(allCategory);
-                    console.log('O sekour');
     
                     allCategory.addEventListener('click', function() {
                         gallery.innerHTML = '';
