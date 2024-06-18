@@ -4,18 +4,39 @@
             const adminBar = document.getElementById('admin-bar');
             const filters = document.querySelector('.filters');
             const login = document.getElementById('login');
+
             adminBar.style.display = 'block';
             filters.style.display = 'none';
             login.style.display = 'none';
+
             const navList = document.querySelector('nav ul')
             const logout = document.createElement('li');
-            console.log(logout)
             logout.id='logout';
-            console.log('logout')
             logout.textContent ='logout';
             navList.appendChild(logout);
 
-                }
+            logout.addEventListener('click',function(){
+                localStorage.removeItem('authToken');
+                location.reload();
+            })
+
+            const portfolioHeader = document.querySelector('#titleportfolio');
+            console.log(portfolioHeader);
+
+            const editButton = document.createElement('button');
+            editButton.id='editButton';
+            editButton.textContent ='Modifier';
+
+            portfolioHeader.appendChild(editButton);
+            console.log(editButton);
+
+            editButton.addEventListener('click',function(){
+                alert('Bouton Modifier cliqué')
+
+            });
+            
+            }
+            
     const gallery = document.querySelector('.gallery');
     const filters = document.querySelector('.filters');
 
