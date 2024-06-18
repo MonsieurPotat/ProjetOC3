@@ -36,9 +36,16 @@
                 addButton.id='addbutton';
                 addButton.textContent='Ajouter un projet';
                 modal.querySelector('.modal-content').appendChild(addButton);
+
+                addButton.addEventListener('click', function() {
+                    modal.style.display = 'none'; 
+                    const modalAddProject = document.getElementById('modal-add-project');
+                    modalAddProject.style.display = 'block'; 
+                });
             });
+
         }
-        
+
         const modal = document.getElementById('modal');
         const closeModalBtn = modal.querySelector('.close');
         closeModalBtn.addEventListener('click', function() {
@@ -50,8 +57,22 @@
                 modal.style.display = 'none';
             }
         });
-   
-
+        function afficherProjetsDansModal(data) {
+            const modalProjects = document.getElementById('modal-projects');
+            modalProjects.innerHTML = '';
+        
+            data.forEach(project => {
+                const figure = document.createElement('figure');
+                const img = document.createElement('img');
+        
+                img.src = project.imageUrl;
+                img.alt = project.title;
+                img.classList.add('modal-img');
+        
+                figure.appendChild(img);
+                modalProjects.appendChild(figure);
+            });
+        }
 
     const gallery = document.querySelector('.gallery');
     const filters = document.querySelector('.filters');
@@ -99,6 +120,7 @@
         .then(response => response.json())
         .then(projects => {
             afficherprojet(projects);
+            afficherProjetsDansModal(projects);
 
             fetch('http://localhost:5678/api/categories')
                 .then(response => response.json())

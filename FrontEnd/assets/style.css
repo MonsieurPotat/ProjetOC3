@@ -232,6 +232,20 @@ li:hover {
     position: relative;
 }
 
+.modal-projects figure {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+}
+.modal-img {
+max-width: 100px; /* Réduire la taille des images */
+height: auto;
+display: block;
+margin: 0 auto 10px;
+
+}
+
+
 /* Style du bouton de fermeture */
 .close {
     color: #aaa;
