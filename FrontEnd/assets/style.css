@@ -237,12 +237,22 @@ li:hover {
     margin: 10px;
     text-align: center;
 }
-.modal-img {
-max-width: 100px; /* Réduire la taille des images */
-height: auto;
-display: block;
-margin: 0 auto 10px;
 
+.figuredelete {
+	position: relative;
+}
+
+.delete {
+	position: absolute;
+	top:0px;
+	right:5px;
+}
+
+.modal-img {
+	max-width: 100px; /* Réduire la taille des images */
+	height: auto;
+	display: block;
+	margin: 0 auto 10px;
 }
 
 
