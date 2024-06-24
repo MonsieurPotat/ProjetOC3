@@ -31,6 +31,7 @@
             editButton.addEventListener('click',function(){
                 const modal = document.getElementById('modal');
                 modal.style.display = 'block';
+
                 
                 const addButton = document.createElement('button');
                 addButton.id='addbutton';
@@ -41,6 +42,7 @@
                     modal.style.display = 'none'; 
                     const modalAddProject = document.getElementById('modal-add-project');
                     modalAddProject.style.display = 'block'; 
+
                 });
             });
 
@@ -64,20 +66,26 @@
                 modalAddProject.style.display='none';
             }
         });
+
+
         function afficherProjetsDansModal(data) {
             const modalProjects = document.getElementById('modal-projects');
             modalProjects.innerHTML = '';
         
             data.forEach(project => {
-                const figure = document.createElement('figure');
-                const img = document.createElement('img');
+                //const figure = document.createElement('figure');
+                //const img = document.createElement('img');
+                const templatedelete= document.querySelector('#templatedelete');
+                const clone = document.importNode( templatedelete.content, true);
+                console.log(clone);
+                const modalimg = clone.querySelector('.modal-img');
+    
+                modalimg.src = project.imageUrl;
+                modalimg.alt = project.title;
+                //img.classList.add('modal-img');
         
-                img.src = project.imageUrl;
-                img.alt = project.title;
-                img.classList.add('modal-img');
-        
-                figure.appendChild(img);
-                modalProjects.appendChild(figure);
+                //figure.appendChild(img);
+                modalProjects.appendChild(clone);
             });
         }
 
