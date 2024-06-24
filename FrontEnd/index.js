@@ -39,12 +39,52 @@
                 modal.querySelector('.modal-content').appendChild(addButton);
 
                 addButton.addEventListener('click', function() {
-                    modal.style.display = 'none'; 
-                    const modalAddProject = document.getElementById('modal-add-project');
-                    modalAddProject.style.display = 'block'; 
+                    const addtemplate = document.querySelector('#addtemplate');
+                    const cloneadd = document.importNode(addtemplate.content, true);
+                    const closebtn = cloneadd.querySelector('.close');
+                    console.log(cloneadd.querySelector('#addProjectForm'));
+                    const addForm = cloneadd.querySelector('#addProjectForm');
 
+
+                    closebtn.addEventListener('click', function() {
+                        cloneadd.remove();
+                    })
+                    addForm.addEventListener('submit', function(event) {
+                        event.preventDefault(); 
+                
+                       
+                        const imageUrl = document.getElementById('imageUrl').files[0];
+                        const title = document.getElementById('title').value;
+                        const category = parseInt(document.getElementById('category').value);
+                
+                        const formData = new FormData();
+                        formData.append('image', imageUrl);
+                        formData.append('title', title);
+                        formData.append('category', category);
+                
+                
+                        fetch('http://localhost:5678/api/works', {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                Authorize:"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcxOTI0OTEzOCwiZXhwIjoxNzE5MzM1NTM4fQ.gG2MwxhWLfI0ApwzMnj2kg3HZLi8CNM8Je0jmqZLvvM"
+                            }
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log('Projet ajouté avec succès :', data);
+                
+                            addProjectForm.reset();
+                        })
+                        .catch(error => {
+                            console.error('Erreur lors de l\'ajout du projet :', error);
+                        });
+                    }); 
+                    
                 });
+                document.querySelector('body').appendChild(addtemplate);
             });
+
 
         }
     const closeModalBtns = document.querySelectorAll('.close');
@@ -73,19 +113,13 @@
             modalProjects.innerHTML = '';
         
             data.forEach(project => {
-                //const figure = document.createElement('figure');
-                //const img = document.createElement('img');
                 const templatedelete= document.querySelector('#templatedelete');
-                const clone = document.importNode( templatedelete.content, true);
-                console.log(clone);
-                const modalimg = clone.querySelector('.modal-img');
+                const clonedelete = document.importNode( templatedelete.content, true);
+                const modalimg = clonedelete.querySelector('.modal-img');
     
                 modalimg.src = project.imageUrl;
                 modalimg.alt = project.title;
-                //img.classList.add('modal-img');
-        
-                //figure.appendChild(img);
-                modalProjects.appendChild(clone);
+                modalProjects.appendChild(clonedelete);
             });
         }
 
