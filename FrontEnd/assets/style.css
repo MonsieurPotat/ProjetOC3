@@ -221,15 +221,19 @@ li:hover {
     overflow: auto;
 }
 
+#modal-add-project.modal {
+	display: block;
+}
+
 /* Contenu de la modal */
-.modal-content {
+.modal-frame {
+	position:relative;
     background-color: #fefefe;
     margin: 15% auto; /* Centrer la modal verticalement à 15% du haut */
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
     max-width: 600px; /* Largeur maximale */
-    position: relative;
 }
 
 .modal-projects figure {

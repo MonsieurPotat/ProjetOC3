@@ -94,16 +94,22 @@
       </nav>
     </footer>
     <div id="modal" class="modal">
-      <div class="modal-content">
+      <div class="modal-frame">
         <span class="close">&times;</span>
-        <h2>Galerie photo</h2>
-        <div id="modal-projects" class="modal-projects">
-          <p></p>
-        </div>
+		<div class="modal-content"></div>
       </div>
     </div>
 
-    <template id="templatedelete">
+
+	<template id="templateEdit">
+	<h2>Galerie photo</h2>
+	<div id="modal-projects" class="modal-projects">
+	</div>	
+	<button id="addbutton">Ajouter un projet</button>
+	</template>
+    
+	
+	<template id="templatedelete">
 		<figure class="figuredelete">
         <img class="modal-img" src="" />
         <span class="delete">&times;</span>
@@ -111,10 +117,6 @@
     </template>
 
 	<template id = "addtemplate">
-		<div id="background-add-project">
-			<div id="modal-add-project" class="modal">
-		  		<div class="modal-content">
-					<span class="close">&times;</span>
 					<h2>Ajouter un nouveau projet</h2>
 					<form id="addProjectForm">
 			  		<label for="imageUrl">Image:</label>
@@ -129,9 +131,6 @@
 	
 			  		<button type="submit">Ajouter Projet</button>
 					</form>
-		  		</div>
-		  	</div>
-		</div>
 		</template>
 	
 

@@ -4,6 +4,8 @@
             const adminBar = document.getElementById('admin-bar');
             const filters = document.querySelector('.filters');
             const login = document.getElementById('login');
+            const modal = document.querySelector('#modal');
+            const modalContent = document.querySelector('#modal .modal-content');
 
             adminBar.style.display = 'block';
             filters.style.display = 'none';
@@ -29,26 +31,19 @@
             portfolioHeader.appendChild(editButton);
 
             editButton.addEventListener('click',function(){
-                const modal = document.getElementById('modal');
-                modal.style.display = 'block';
+                const templateEdit =document.querySelector('#templateEdit');
+                const cloneTemplateEdit = document.importNode(templateEdit.content, true);
 
-                
-                const addButton = document.createElement('button');
-                addButton.id='addbutton';
-                addButton.textContent='Ajouter un projet';
-                modal.querySelector('.modal-content').appendChild(addButton);
+                afficherProjetsDansModal(cloneTemplateEdit, JSON.parse(localStorage.getItem('projects')));
+                const addButton = cloneTemplateEdit.querySelector('#addbutton');
 
-                addButton.addEventListener('click', function() {
+
+                addButton.addEventListener('click',function() {
                     const addtemplate = document.querySelector('#addtemplate');
                     const cloneadd = document.importNode(addtemplate.content, true);
-                    const closebtn = cloneadd.querySelector('.close');
                     console.log(cloneadd.querySelector('#addProjectForm'));
                     const addForm = cloneadd.querySelector('#addProjectForm');
 
-
-                    closebtn.addEventListener('click', function() {
-                        cloneadd.remove();
-                    })
                     addForm.addEventListener('submit', function(event) {
                         event.preventDefault(); 
                 
@@ -67,7 +62,7 @@
                             method: 'POST',
                             body: formData,
                             headers: {
-                                Authorize:"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcxOTI0OTEzOCwiZXhwIjoxNzE5MzM1NTM4fQ.gG2MwxhWLfI0ApwzMnj2kg3HZLi8CNM8Je0jmqZLvvM"
+                                Authorization:"Bearer " + token
                             }
                         })
                         .then(response => response.json())
@@ -80,9 +75,13 @@
                             console.error('Erreur lors de l\'ajout du projet :', error);
                         });
                     }); 
-                    
+                    modalContent.innerHTML='';
+                    modalContent.appendChild(cloneadd);
                 });
-                document.querySelector('body').appendChild(addtemplate);
+                modalContent.innerHTML ='';
+                modalContent.appendChild(cloneTemplateEdit);
+                modal.style.display = 'block';
+
             });
 
 
@@ -108,8 +107,8 @@
         });
 
 
-        function afficherProjetsDansModal(data) {
-            const modalProjects = document.getElementById('modal-projects');
+        function afficherProjetsDansModal(modal,data) {
+            const modalProjects = modal.getElementById('modal-projects');
             modalProjects.innerHTML = '';
         
             data.forEach(project => {
@@ -168,8 +167,8 @@
     fetch('http://localhost:5678/api/works')
         .then(response => response.json())
         .then(projects => {
+            localStorage.setItem('projects',JSON.stringify(projects));
             afficherprojet(projects);
-            afficherProjetsDansModal(projects);
 
             fetch('http://localhost:5678/api/categories')
                 .then(response => response.json())
