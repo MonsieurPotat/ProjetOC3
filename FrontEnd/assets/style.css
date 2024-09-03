@@ -221,12 +221,12 @@ li:hover {
     overflow: auto;
 }
 
-#modal-add-project.modal {
+#modalAddProject.modal {
 	display: block;
 }
 
 /* Contenu de la modal */
-.modal-frame {
+.modalFrame {
 	position:relative;
     background-color: #fefefe;
     margin: 15% auto; /* Centrer la modal verticalement à 15% du haut */
@@ -236,13 +236,13 @@ li:hover {
     max-width: 600px; /* Largeur maximale */
 }
 
-.modal-projects figure {
+.modalProjects figure {
     display: inline-block;
     margin: 10px;
     text-align: center;
 }
 
-.figuredelete {
+.figureDelete {
 	position: relative;
 }
 
@@ -252,7 +252,7 @@ li:hover {
 	right:5px;
 }
 
-.modal-img {
+.modalImg {
 	max-width: 100px; /* Réduire la taille des images */
 	height: auto;
 	display: block;
@@ -274,6 +274,155 @@ li:hover {
     text-decoration: none;
     cursor: pointer;
 }
+
+#adminBar {
+	display: none;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+#error {
+	color: red;
+	 display: none;
+}
+
+#editButton {
+	border:none;
+	background-color:white;
+}
+
+#logIn {
+	text-align:center;
+}
+
+#logout {
+	display:none;
+}
+
+
+form {
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	justify-content:center;
+	border:none;
+	box-shadow: 10px black;
+}
+
+input[type="name"],input[type="password"]{
+	width:100%;
+	padding:10px;
+	margin-bottom:20px;
+	border:none;
+	border-radius:5px;
+	box-shadow: 0 2px 5px black;
+	background-color:#ffff;
+	color:#000;
+}
+
+ .modalH2 {
+display:flex;
+align-items:center;
+justify-content:center;
+color:black;
+font-family:'Work Sans';
+font-weight:normal;
+
+
+}
+
+.modalButton {
+	display:flex;
+	width:237px;
+	height:36px;
+	border-radius:60px;
+	justify-content:center;
+	align-items:center;
+	background-color:#1D6154;
+	color:white;
+	font-family:'Syne';
+	border-width:0px;
+	
+
+}
+
+.delete {
+    display: inline-block;
+    background-color: black;
+    width: 17px;
+    height: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	border-radius:5px;
+}
+
+.delete i {
+    color: white;
+    font-size: 10px;
+}
+
+#formLogIn {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+form#loginForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formmail, .formpassword {
+    margin-bottom: 20px;
+	width: 250px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input[type="text"], input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    outline: none;
+    border-color: #2f4f41;
+}
+
+button.modalButton:hover {
+    background-color: #263b33;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#error {
+    display: none;
+    color: red;
+    text-align: center;
+    margin-top: 15px;
+}
+
+
+
 
 
 
