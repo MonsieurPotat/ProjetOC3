@@ -23,20 +23,22 @@
         </nav>
     </header>
     <main> 
-        <H2>Log In</H2>
+        <div id="formLogIn">
+        <H2 id="logIn">Log In</H2>
         <form id="loginForm" class ="formlogin">
             <div class="formmail">      
-                <label for="email">E-mail</label>
+                <label for="email">E-mail</label><br>
                 <input type="name" name="name" id="name" required />
             </div>
             <div class="formpassword">
-                <label for="password">Mot de passe</label>
+                <label for="password">Mot de passe</label><br>
                 <input type="password" name="password" id="password" required />
             </div>
-            <button type="submit">Se connecter</button>
+            <button type="submit" class="modalButton">Se connecter</button><br>
             <a href="#">Mot de passe oublié</a>
         </form>
-        <div id="error" style="color: red; display: none;">Erreur de connexion. Veuillez réessayer.</div>
+        <div id="error">Erreur de connexion. Veuillez réessayer.</div>
+        </div>
         
 
         
@@ -44,7 +46,7 @@
 
     </main>
     <footer>
-        <ul>
+        <ul id="legalMention">
             <li>Mentions légales</li>
         </ul>
         <script src="login.js"></script>

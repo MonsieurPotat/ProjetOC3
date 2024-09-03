@@ -10,27 +10,18 @@
       href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
       rel="stylesheet"
     />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
     <meta name="description" content="" />
     <link rel="stylesheet" href="./assets/style.css" />
   </head>
   <body>
-    <div
-      id="admin-bar"
-      style="
-        display: none;
-        background-color: black;
-        color: white;
-        text-align: center;
-        padding: 10px;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        left: 0;
-        z-index: 1000;
-      "
-    >
-      Mode Admin
-    </div>
+    <div id="adminBar"><i class="fa-regular fa-pen-to-square"></i>Mode édition </div>
     <header>
       <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
       <nav>
@@ -38,6 +29,7 @@
           <li>projets</li>
           <li>contact</li>
           <li id="login"><a href="login.html">login</a></li>
+          <li id="logout"><a href="index.html">logout</a></li>
           <li><img src="./assets/icons/instagram.png" alt="Instagram" /></li>
         </ul>
       </nav>
@@ -94,33 +86,37 @@
       </nav>
     </footer>
     <div id="modal" class="modal">
-      <div class="modal-frame">
+      <div class="modalFrame">
         <span class="close">&times;</span>
-		<div class="modal-content"></div>
+		<div class="modalContent"></div>
       </div>
     </div>
 
 
 	<template id="templateEdit">
-	<h2>Galerie photo</h2>
-	<div id="modal-projects" class="modal-projects">
+	<h2 class="modalH2">Galerie photo</h2>
+	<div id="modalProjects" class="modalProjects">
 	</div>	
-	<button id="addbutton">Ajouter un projet</button>
+	<button id="addButton" class="modalButton">Ajouter une photo</button>
 	</template>
     
 	
-	<template id="templatedelete">
-		<figure class="figuredelete">
-        <img class="modal-img" src="" />
-        <span class="delete">&times;</span>
+	<template id="templateDelete">
+		<figure class="figureDelete">
+        <img class="modalImg" src="" />
+        <span class="delete">
+          <i class="fas fa-trash-alt"></i>
+        </span>
       </figure>
     </template>
 
-	<template id = "addtemplate">
-					<h2>Ajouter un nouveau projet</h2>
+	<template id = "addTemplate">
+          <span class="retour">retour</span>
+					<h2 class="modalH2">Ajout photo</h2>
+          
 					<form id="addProjectForm">
-			  		<label for="imageUrl">Image:</label>
 			  		<input type="file" id="imageUrl"name="image" accept="image/*"required/>
+            <img id="previewImg" />
 					<br />
 	
 			  		<label for="title">Titre:</label>
@@ -129,7 +125,7 @@
 			 		<label for="category">Catégorie:</label>
 			  		<input type="number" id="category" name="category" required /><br />
 	
-			  		<button type="submit">Ajouter Projet</button>
+			  		<button class="modalButton" type="submit">Valider</button>
 					</form>
 		</template>
 	
