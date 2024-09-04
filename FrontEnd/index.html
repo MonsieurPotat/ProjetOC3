@@ -89,6 +89,7 @@
       <div class="modalFrame">
         <span class="close">&times;</span>
 		<div class="modalContent"></div>
+
       </div>
     </div>
 
@@ -111,11 +112,20 @@
     </template>
 
 	<template id = "addTemplate">
-          <span class="retour">retour</span>
 					<h2 class="modalH2">Ajout photo</h2>
-          
+          <span class="retour">
+            <i class="fa-solid fa-arrow-left"></i>
+          </span>
 					<form id="addProjectForm">
-			  		<input type="file" id="imageUrl"name="image" accept="image/*"required/>
+            <div class="photo-upload">
+        <label for="imageUrl">
+          <div class="upload-placeholder">
+            <img id="previewImg" alt="Preview Image"/>
+            <p>+ Ajouter photo</p>
+            <p>jpg, png : 4mo max</p>
+          </div>
+        </label>
+			  		<input type="file" id="imageUrl"name="image" accept="image/*" style="display:none;" required/>
             <img id="previewImg" />
 					<br />
 	
