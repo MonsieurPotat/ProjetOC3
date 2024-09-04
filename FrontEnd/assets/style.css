@@ -300,6 +300,7 @@ li:hover {
 
 #logIn {
 	text-align:center;
+	margin-bottom:30px;
 }
 
 #logout {
@@ -308,12 +309,10 @@ li:hover {
 
 
 form {
-	display:flex;
-	flex-direction:column;
-	align-items:center;
-	justify-content:center;
 	border:none;
 	box-shadow: 10px black;
+	margin-left:auto;
+	margin-right:auto;
 }
 
 input[type="name"],input[type="password"]{
@@ -322,6 +321,8 @@ input[type="name"],input[type="password"]{
     border-radius: 2px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     font-size: 16px;
+	width:100%;
+	box-sizing:border-box;
 }
 
  .modalH2 {
@@ -331,17 +332,15 @@ justify-content:center;
 color:black;
 font-family:'Work Sans';
 font-weight:normal;
+margin-bottom:30px;
 
 
 }
 
 .modalButton {
-	display:flex;
 	width:237px;
 	height:36px;
 	border-radius:60px;
-	justify-content:center;
-	align-items:center;
 	background-color:#1D6154;
 	color:white;
 	font-family:'Syne';
@@ -397,8 +396,9 @@ input[type="text"], input[type="password"] {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     font-size: 16px;
 	margin-bottom:20px;
+	width:100%;
+	box-sizing:border-box;
 }
-
 input[type="number"]:focus, input[type="password"]:focus {
     outline: none;
     border-color: #2f4f41;
@@ -411,7 +411,10 @@ input[type="number"], input[type="password"] {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     font-size: 16px;
 	margin-bottom:20px;
+	width:100%;
+	box-sizing:border-box;
 }
+
 
 button.modalButton:hover {
     background-color: #263b33;
@@ -437,8 +440,8 @@ a:hover {
 .upload-placeholder {
 	border: 1px solid #ccc;
 	padding: 20px;
-	cursor: pointer;
 	border-radius: 4px;
+	background-color:#E8F1F6;
 }
 
 .photo-upload {
@@ -456,15 +459,45 @@ a:hover {
 	cursor: pointer;
 }
 
+#editDiv {
+	display:flex;
+	align-items:center;
+	justify-content:center;	
+}
+
+#previewImg{
+	display:none;
+}
+
+form#addProjectForm {
+	width:60%;
+}
+
+.fa-image {
+	display:flex;
+	justify-content:center;
+	font-size:60px;
+	color:#B9C5CC;
+}
+
+#imageUrl {
+display:none;
+}
 
 
+.labelImage {
+	border-radius:60px;
+	background-color:#B9C5CC;
+	color:#306685;
+	font-family:'Syne';
+	border-width:0px;
+	z-index:99;
+	cursor:pointer;
+	margin:0 auto;
+	width:50%;
+	padding: 10px 0;
+}
 
-
-
-
-
-
-
-
-
-
+.labelAutre {
+	margin-right: 350px;
+}

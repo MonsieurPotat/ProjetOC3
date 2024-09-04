@@ -170,8 +170,11 @@
         const modalContent = document.querySelector('#modal .modalContent');
         var imageUrl = cloneAdd.getElementById('imageUrl');
         imageUrl.addEventListener('change', function(event) {
+            const faImage = document.getElementById("faImage");
+            faImage.style.display='none';
             const previewImg = document.querySelector('#previewImg');
             previewImg.src=URL.createObjectURL(event.target.files[0]);
+            previewImg.style.display='block';
             previewImg.onload = function (){
                 URL.revokeObjectURL(previewImg.src)
                 }
@@ -184,7 +187,8 @@
         const imageUrl = document.getElementById('imageUrl').files[0];
         const title = document.getElementById('title').value;
         const category = parseInt(document.getElementById('category').value);
-        
+        const faImage = document.getElementById("faImage");
+        const previewImg = document.querySelector('#previewImg');
         const formData = new FormData();
         formData.append('image', imageUrl);
         formData.append('title', title);
@@ -201,6 +205,8 @@
             .then(data => {
                 console.log('Projet ajouté avec succès :', data);
                 addProjectForm.reset();
+                faImage.style.display='block';
+                previewImg.style.display='none';
                 let projects =JSON.parse(localStorage.getItem('projects'));
                 projects.push(data);
                 localStorage.setItem('projects',JSON.stringify(projects));
