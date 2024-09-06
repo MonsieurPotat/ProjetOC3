@@ -254,7 +254,7 @@ li:hover {
 
 .modalImg {
 	max-width: 100px; /* Réduire la taille des images */
-	height: auto;
+	height: 135px;
 	display: block;
 	margin: 0 auto 10px;
 }
